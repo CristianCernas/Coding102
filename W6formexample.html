@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W6 Form Example</title>
+</head>
+<body>
+    <h1>Simple Form</h1>
+
+    <!-- html form allows us to enter information and do something with it (assuming we have server set up)-->
+    <form action="" method="post" onsubmit="return validateForm();">
+        <!-- set up a label and textbox to get the user's name -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <br>
+        <!-- set up a label and textbox to get the user's email -->
+         <label for="emailaddr">Email:</label>
+         <input type="email" id="emailaddr" name="emailaddr">
+         <br>
+         <!-- set up a label and textbox to get the user's age -->
+          <label for="age">Age:</label>
+          <input type="number" id="age" name="age">
+          <br>
+          <br>
+          <input type="submit" value="Submit">
+
+    </form>
+
+    <script>
+        function validateForm(){
+            //get the name the user entered in the text box and put it in a variable
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("emailaddr").value;
+            var age = document.getElementById("age").value;
+
+            console.log("name=" + name)
+            console.log("email=" + email)
+            console.log("age=" + age)
+
+            // check to see if the name is empty, removing any spaces at the beginning or end
+            if (name.trim() == ""){
+                alert("Please enter a name.")
+            }
+
+            //makes sure an email was entered
+            if (email.trim() == ""){
+                alert("Please enter an emai address.")
+            }
+
+            //makes sure an age was entered
+            if (age.trim() == ""){
+                alert("Please enter an age.")
+            }
+
+            //make sure age is a number
+            if (isNaN(age)){ // is Not a Number will be true if, for example, a string was entered
+                alert("Please enter a number for the age.");
+            }
+
+            // prevent the form from submitting (this would prevent it from submitting to the server)
+            return false;
+        }
+    </script>
+</body>
+</html>
