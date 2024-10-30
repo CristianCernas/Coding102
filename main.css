@@ -33,8 +33,11 @@ footer{
 }
 
 #memeImage{
+    position: absolute; /* this will allow is to move the image around */
     margin-right: 200px;
     width: 400px;
+    left: 100px; /* optional*/
+    top: 100px; /*optional*/
 }
 
 p{
